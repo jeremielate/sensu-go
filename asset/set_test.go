@@ -106,7 +106,7 @@ func TestEnvContainsParentEnv(t *testing.T) {
 
 	keyFound := false
 	for _, envVar := range env {
-		key := strings.Split(envVar, "=")[0]
+		key := strings.SplitN(envVar, "=", 2)[0]
 		if key == envKey {
 			keyFound = true
 			assert.Contains(t, envVar, testPath)
